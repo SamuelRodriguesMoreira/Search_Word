@@ -1,0 +1,43 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = pesquisa_sequencial.o main.o ordenacao.o Arvore_binaria.o Hash_direto.o Hash_indireto_encadeado.o
+LINKOBJ  = pesquisa_sequencial.o main.o ordenacao.o Arvore_binaria.o Hash_direto.o Hash_indireto_encadeado.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Project1.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+pesquisa_sequencial.o: pesquisa_sequencial.c
+	$(CPP) -c pesquisa_sequencial.c -o pesquisa_sequencial.o $(CXXFLAGS)
+
+main.o: main.c
+	$(CPP) -c main.c -o main.o $(CXXFLAGS)
+
+ordenacao.o: ordenacao.c
+	$(CPP) -c ordenacao.c -o ordenacao.o $(CXXFLAGS)
+
+Arvore_binaria.o: Arvore_binaria.c
+	$(CPP) -c Arvore_binaria.c -o Arvore_binaria.o $(CXXFLAGS)
+
+Hash_direto.o: Hash_direto.c
+	$(CPP) -c Hash_direto.c -o Hash_direto.o $(CXXFLAGS)
+
+Hash_indireto_encadeado.o: Hash_indireto_encadeado.c
+	$(CPP) -c Hash_indireto_encadeado.c -o Hash_indireto_encadeado.o $(CXXFLAGS)
